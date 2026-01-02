@@ -5,7 +5,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 import socket
-import messaging_protocol as mp
+from protocol import protocol as mp
 import json
 import datetime
 import time
@@ -250,7 +250,7 @@ class Sebsenger:
 class ServerConnection():
     def __init__(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.connect(("127.0.0.1", 8500))
+        self.socket.connect(("62.60.178.229", 8500))
     
     def login(self, username, password):
         mp.send_text(self.socket, username)
